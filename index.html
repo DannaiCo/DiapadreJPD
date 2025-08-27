@@ -5,8 +5,8 @@
   <title>Día del padre - iCo Medios</title>
   <meta http-equiv="refresh" content="180">
 
-  <!-- Fuente Poppins -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+  <!-- Fuente Unbounded -->
+  <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;500;700;800&display=swap" rel="stylesheet">
 
   <style>
     html, body {
@@ -35,15 +35,18 @@
     .mensaje {
       position: absolute;
       bottom: 50vh;
-      left: 18vw;
+      left: 50%;                         /* centrado */
+      transform: translateX(-50%);       /* corrección centrado */
       z-index: 2; 
-      font-weight: bold;
+      font-weight: 700;                  /* Bold */
       color: #E6736A;
       font-size: 3.5vw;
       font-style: normal;
-      font-family: 'Poppins', sans-serif;
+      font-family: 'Unbounded', sans-serif;
       opacity: 0;
       transition: opacity 0.5s ease-in;
+      text-align: center;                /* por si se va a dos líneas */
+      white-space: nowrap;               /* opcional: evita salto de línea */
     }
   
     .mensaje.mostrar {
