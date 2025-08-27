@@ -1,14 +1,44 @@
-	<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8">
   <title>Día del padre - iCo Medios</title>
   <meta http-equiv="refresh" content="180">
 
-  <!-- Fuente Unbounded -->
+  <!-- Unbounded desde Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;500;700;800&display=swap" rel="stylesheet">
 
   <style>
+    /* Fallback local (pon los .ttf en la misma carpeta y ajusta los nombres si difieren) */
+    @font-face {
+      font-family: 'UnboundedLocal';
+      src: url('Unbounded-Regular.ttf') format('truetype');
+      font-weight: 400;
+      font-style: normal;
+      font-display: swap;
+    }
+    @font-face {
+      font-family: 'UnboundedLocal';
+      src: url('Unbounded-Medium.ttf') format('truetype');
+      font-weight: 500;
+      font-style: normal;
+      font-display: swap;
+    }
+    @font-face {
+      font-family: 'UnboundedLocal';
+      src: url('Unbounded-Bold.ttf') format('truetype');
+      font-weight: 700;
+      font-style: normal;
+      font-display: swap;
+    }
+    @font-face {
+      font-family: 'UnboundedLocal';
+      src: url('Unbounded-ExtraBold.ttf') format('truetype');
+      font-weight: 800;
+      font-style: normal;
+      font-display: swap;
+    }
+
     html, body {
       margin: 0;
       padding: 0;
@@ -34,19 +64,22 @@
   
     .mensaje {
       position: absolute;
-      bottom: 50vh;
-      left: 50%;                         /* centrado */
-      transform: translateX(-50%);       /* corrección centrado */
-      z-index: 2; 
-      font-weight: 700;                  /* Bold */
+      bottom: 28vh;
+      left: 60%;
+      transform: translateX(-50%);
+      z-index: 2;
+      font-weight: 700;
       color: #E6736A;
       font-size: 3.5vw;
       font-style: normal;
-      font-family: 'Unbounded', sans-serif;
+
+      /* Intenta primero la local; si no, la de Google; si no, sans-serif */
+      font-family: 'UnboundedLocal', 'Unbounded', sans-serif !important;
+
       opacity: 0;
       transition: opacity 0.5s ease-in;
-      text-align: center;                /* por si se va a dos líneas */
-      white-space: nowrap;               /* opcional: evita salto de línea */
+      text-align: center;
+      white-space: nowrap;
     }
   
     .mensaje.mostrar {
@@ -76,18 +109,19 @@
 
         if (aprobados.length > 0) {
           const elegido = aprobados[Math.floor(Math.random() * aprobados.length)];
-          contenedorMensaje.innerText = elegido.para.toUpperCase();
+          contenedorMensaje.textContent = (elegido.para || "--").toUpperCase();
         } else {
-          contenedorMensaje.innerText = "--";
+          contenedorMensaje.textContent = "--";
         }
 
         setTimeout(() => {
           contenedorMensaje.classList.add("mostrar");
-        }, 1000); 
+        }, 1000);
       });
   </script>
 </body>
 </html>
+
 
 
 
